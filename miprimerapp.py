@@ -6,9 +6,13 @@ import tkinter as tk
 def Sumar():
     numero1 = numeroIngreso.get()
     numero2 = numeroIngreso2.get()
-    Resultado = int(numero1) + int(numero2)
-    resultadoMostrado.config(text=Resultado)    
-    
+
+    try:
+        Resultado = int(numero1) + int(numero2)
+    except ValueError:
+        Resultado = "ingrese un numero valido"
+        
+    resultadoMostrado.config(text=Resultado)        
 
 ventana = tk.Tk()
 ventana.title("Calculadora")
