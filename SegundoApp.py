@@ -1,4 +1,3 @@
-
 from cgitb import text
 import tkinter as tk
 from turtle import clear
@@ -41,7 +40,8 @@ def Sumar():
         Entrada1.set(Entrada1.get() + "+")
 
 def igual():
-        Resultado = int(Entrada1.get())
+        Resultado = eval(Entrada1.get())
+        Entrada1.set(Resultado)
 
 ventana = tk.Tk()
 ventana.title("Calculadora")
@@ -49,12 +49,9 @@ ventana.geometry("400x600")
 
 Entrada1 = tk.StringVar()
 PrimerNumero = tk.StringVar()
-Resultado = tk.StringVar()
 
-textoInicio = tk.Label(ventana, text="Pantalla Calculadora")
-textoInicio.grid()
 textouno = tk.Label(ventana, textvariable=Entrada1)
-textouno.grid(row=0, column=1)
+textouno.grid(row=1, column=1, columnspan=4)
 pantalla = tk.Entry(ventana, textvariable=Entrada1)
 pantalla.grid(row=1, column=1, columnspan=3, pady=10)
 numero1 = tk.Button(ventana, text="1", command=Escribe1)
@@ -77,7 +74,7 @@ numero9 = tk.Button(ventana, text="9", command=Escribe9)
 numero9.grid(row=4, column=3, sticky="nsew")
 botonsuma = tk.Button(ventana, text="+", command=Sumar)
 botonsuma.grid(row=2, column=4, sticky="nsew")
-botonigual = tk.Button(ventana, text="+", command=igual)
+botonigual = tk.Button(ventana, text="=", command=igual)
 botonigual.grid(row=4, column=4, sticky="nsew")
 
 
@@ -88,3 +85,4 @@ botonigual.grid(row=4, column=4, sticky="nsew")
 
 
 ventana.mainloop()
+
